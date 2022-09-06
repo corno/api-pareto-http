@@ -1,34 +1,34 @@
 import * as pt from "pareto-core-types"
+import * as pa from "pareto-core-async"
 import { IStreamConsumer } from "../interfaces/x";
 
 import { THTTPError } from "../types/HTTPError"
 import { TPath } from "../types/x";
 
-export type XCreator<DATA, ALGORITHMS, INTERFACE> = ($: DATA, $a: ALGORITHMS) => INTERFACE;
 
-
-
-export type XResource<ID, DATA> = {
-    get: ($: {
+export type PGetResource<ID, DATA> = (
+    $: {
         id: ID;
-    }, $i: {
+    },
+    $i: {
         onNotExists: () => void;
         onFailed: () => void;
         init: () => IStreamConsumer<DATA>;
-    }) => pt.AsyncNonValue;
-};
-
-export type XHTTPResource = XResource<TPath, string>
-
+    },
+    $s: pa.StartAsync
+) => void
 
 
-export type XCreateHTTPResource = XCreator<
-    {
+export type PHTTPResource = PGetResource<TPath, string>
+
+
+
+export type FCreateHTTPResource = (
+    $: {
         readonly "hostName": string,
         readonly "contextPath": TPath,
     },
-    {
+    $i: {
         readonly onError: ($: THTTPError) => void
     },
-    XHTTPResource
->
+) => PHTTPResource
