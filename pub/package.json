@@ -1,7 +1,7 @@
 {
   "author": "Corno",
   "dependencies": {
-    "pareto-core-types": "^0.2.0"
+    "pareto-core-types": "^0.5.0"
   },
   "files": [
     "dist",
@@ -22,6 +22,6 @@
   },
   "types": "dist/index.d.ts",
   "version": "0.2.0",
-  "interface-fingerprint": "bfe9bf858b64a7d02190078c8cfedacd4c106a82",
-  "content-fingerprint": "40921aa39602d7c1ad886ed0489658d42be7c54e"
+  "interface-fingerprint": "f8c170b5473ea9daea013d8d855be47de895d815",
+  "content-fingerprint": "a34c2f803ce8183f9fc9016f551dd277d2fba66f"
 }

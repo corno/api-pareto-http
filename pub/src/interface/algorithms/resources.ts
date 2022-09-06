@@ -1,25 +1,21 @@
 import * as pt from "pareto-core-types"
-import * as pa from "pareto-core-async"
 import { IStreamConsumer } from "../interfaces/x";
 
 import { THTTPError } from "../types/HTTPError"
 import { TPath } from "../types/x";
 
 
-export type PGetResource<ID, DATA> = (
+export type PHTTPResource = (
     $: {
-        id: ID;
+        readonly "id": TPath;
     },
     $i: {
-        onNotExists: () => void;
-        onFailed: () => void;
-        init: () => IStreamConsumer<DATA>;
+        readonly "onNotExists": () => void;
+        readonly "onFailed": () => void;
+        readonly "init": () => IStreamConsumer<string>;
     },
-    $s: pa.StartAsync
+    $a: pt.ProcessAsyncValue
 ) => void
-
-
-export type PHTTPResource = PGetResource<TPath, string>
 
 
 
