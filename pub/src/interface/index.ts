@@ -1,5 +1,5 @@
 
-export * from "./types/HTTPError"
-export * from "./types/x"
-export * from "./interfaces/x"
-export * from "./algorithms/resources"
+export * from "./types/HTTPError.p"
+export * from "./types/Path.p"
+export * from "./interfaces/StreamConsumer.p"
+export * from "./functions/functions.p"
